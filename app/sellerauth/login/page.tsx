@@ -90,12 +90,11 @@ const [loading, setLoading] = useState(false);
   onClick={() => {
     setLoading(true);
 
-    // 🔐 yahan baad me real API call lagegi
     setTimeout(() => {
       setLoading(false);
 
       // ✅ LOGIN SUCCESS → DASHBOARD
-      router.push("/seller/dashboard");
+      router.push("/sellerdashboard");
     }, 1500);
   }}
   className={`

@@ -86,7 +86,7 @@ export default function EarningsPage() {
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="month" />
             <YAxis />
-            <Tooltip formatter={(v: number) => `₹${v.toLocaleString()}`} />
+            <Tooltip formatter={(v?: number) => (v ?? 0).toString()}/>
             <Area type="monotone" dataKey="revenue" stroke="#2563eb" fill="#93c5fd" />
           </AreaChart>
         </ResponsiveContainer>

@@ -1,4 +1,16 @@
-import { Facebook, Instagram, Twitter, Youtube, Mail, Phone, MapPin } from "lucide-react";
+"use client";
+
+import { useState } from "react";
+import {
+  Facebook,
+  Instagram,
+  Twitter,
+  Youtube,
+  Mail,
+  Phone,
+  MapPin,
+  Loader2,
+} from "lucide-react";
 import { Input } from "@/app/components/ui/input";
 import { Button } from "@/app/components/ui/button";
 
@@ -17,37 +29,62 @@ const socialLinks = [
 ];
 
 export function NirmatriFooter() {
+  const [loading, setLoading] = useState(false);
+
+  const handleSubscribe = async () => {
+    setLoading(true);
+
+    // fake API call – replace with real newsletter API
+    await new Promise((res) => setTimeout(res, 2000));
+
+    setLoading(false);
+  };
+
   return (
     <footer className="bg-gray-900 dark:bg-gray-950 text-gray-300 transition-colors duration-300">
       {/* Newsletter */}
-      <div className="bg-gradient-to-r from-blue-900 to-blue-800   py-8 px-4 sm:px-6 lg:px-8">
+      <div className="bg-gradient-to-r from-blue-900 to-blue-800 py-8 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="text-center md:text-left">
               <h3 className="text-2xl text-white mb-2">Stay Connected</h3>
-              <p className="text-white/90">Get updates on new artisan stories and exclusive deals</p>
+              <p className="text-white/90">
+                Get updates on new artisan stories and exclusive deals
+              </p>
             </div>
+
             <div className="flex gap-2 w-full md:w-auto max-w-md">
               <Input
                 type="email"
                 placeholder="Enter your email"
                 className="bg-white/90 border-none"
               />
-              <Button
-  className="
-    bg-gray-900 text-white px-6
-    transition-all duration-300 ease-out
-    hover:bg-gray-800
-    hover:-translate-y-1
-    hover:scale-[1.03]
-    hover:shadow-2xl hover:shadow-black/30
-    active:translate-y-0
-    active:scale-100
-  "
->
-  Subscribe
-</Button>
 
+              {/* 🔥 SUBSCRIBE BUTTON WITH SPINNER */}
+              <Button
+                onClick={handleSubscribe}
+                disabled={loading}
+                className="
+                  bg-gray-900 text-white px-6 min-w-[140px]
+                  transition-all duration-300 ease-out
+                  hover:bg-gray-800
+                  hover:-translate-y-1
+                  hover:scale-[1.03]
+                  hover:shadow-2xl hover:shadow-black/30
+                  active:translate-y-0
+                  active:scale-100
+                  disabled:opacity-80 disabled:cursor-not-allowed
+                "
+              >
+                {loading ? (
+                  <span className="flex items-center gap-2">
+                    <Loader2 className="h-4 w-4 animate-spin" />
+                    Subscribing
+                  </span>
+                ) : (
+                  "Subscribe"
+                )}
+              </Button>
             </div>
           </div>
         </div>
@@ -63,10 +100,10 @@ export function NirmatriFooter() {
                 Nirmatri
               </h3>
               <p className="text-sm mb-6">
-                Empowering women artisans through sustainable, handmade crafts. Every purchase creates opportunity.
+                Empowering women artisans through sustainable, handmade crafts.
+                Every purchase creates opportunity.
               </p>
 
-              {/* Contact Info */}
               <div className="space-y-3 text-sm">
                 <div className="flex items-center gap-2">
                   <Mail className="h-4 w-4 text-blue-400" />
@@ -78,7 +115,11 @@ export function NirmatriFooter() {
                 </div>
                 <div className="flex items-start gap-2">
                   <MapPin className="h-4 w-4 text-blue-400 mt-1" />
-                  <span>123 Artisan Street, Craft District,<br />Mumbai, Maharashtra 400001</span>
+                  <span>
+                    123 Artisan Street, Craft District,
+                    <br />
+                    Mumbai, Maharashtra 400001
+                  </span>
                 </div>
               </div>
             </div>
@@ -100,10 +141,9 @@ export function NirmatriFooter() {
             ))}
           </div>
 
-          {/* Social & Payment */}
+          {/* Bottom Bar */}
           <div className="pt-8 border-t border-gray-800">
             <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-              {/* Social Links */}
               <div className="flex gap-4">
                 {socialLinks.map((social) => {
                   const Icon = social.icon;
@@ -120,12 +160,10 @@ export function NirmatriFooter() {
                 })}
               </div>
 
-              {/* Copyright */}
               <p className="text-sm text-gray-400">
                 © 2026 Nirmatri. Crafted with ❤️ for artisans.
               </p>
 
-              {/* Payment Methods */}
               <div className="flex items-center gap-2 text-xs text-gray-400">
                 <span>We Accept:</span>
                 <div className="flex gap-2">

@@ -20,7 +20,7 @@ export default function Page() {
         <CategoryShowcase />
         <SponsoredProducts />
         <ArtisanSpotlight />
-        <WhyShopWithUs />
+      
         <NirmatriFooter />
       </div>
     </ThemeProvider>

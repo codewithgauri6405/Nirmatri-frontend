@@ -156,16 +156,16 @@ export default function SettingsPage() {
 
           {activeTab === 'notifications' && (
             <div className="space-y-4">
-              {Object.entries(notifications).map(([key, value]) => (
-                <NotificationToggle
-                  key={key}
-                  label={key}
-                  description=""
-                  checked={value}
-                  onChange={(checked) =>
-                    setNotifications({ ...notifications, [key]: checked })
-                  }
-                />
+              {Object.entries(notifications).map(([key, value]: [string, boolean]) => (
+              <NotificationToggle
+                key={key}
+                label={key}
+                description=""
+                checked={value}
+                onChange={(checked: boolean) =>
+                setNotifications({ ...notifications, [key]: checked })
+                }
+              />
               ))}
             </div>
           )}

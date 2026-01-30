@@ -22,7 +22,7 @@ export default function LoginPage() {
     setError("");
     setLoading(true);
 
-    // fake API
+ 
     setTimeout(() => {
       router.push("/shop");
     }, 2000);

@@ -24,12 +24,11 @@ export default function SellerLayout({
         </div>
 
         <nav className="space-y-1 text-sm flex-1">
-          <NavItem href="/seller/dashboard" label="Dashboard" pathname={pathname} />
-          <NavItem href="/seller/orders" label="Orders" pathname={pathname} />
-          <NavItem href="/seller/products" label="Products" pathname={pathname} />
-          <NavItem href="/seller/earnings" label="Earnings" pathname={pathname} />
-          <NavItem href="/seller/profile" label="Profile" pathname={pathname} />
-          <NavItem href="/seller/settings" label="Settings" pathname={pathname} />
+          <NavItem href="/sellerdashboard/orders" label="Orders" pathname={pathname} />
+          <NavItem href="/sellerdashboard/products" label="Products" pathname={pathname} />
+          <NavItem href="/sellerdashboard/earnings" label="Earnings" pathname={pathname} />
+          <NavItem href="/sellerdashboard/profile" label="Profile" pathname={pathname} />
+          <NavItem href="/sellerdashboard/settings" label="Settings" pathname={pathname} />
         </nav>
 
         <Link

@@ -50,7 +50,7 @@ export function VideoLikeCarousel() {
   const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
 
   return (
-    <section className="relative h-[550px] md:h-[650px] overflow-hidden bg-[#FAF9F6]">
+    <section className="relative h-[300px] md:h-[390px] overflow-hidden bg-[#FAF9F6]">
       {/* Slides */}
       {slides.map((slide, index) => (
         <div
@@ -142,7 +142,7 @@ export function VideoLikeCarousel() {
       </div>
 
       {/* Modern Number Indicators */}
-      <div className="absolute bottom-12 left-12 flex items-center gap-6 z-20">
+      {/* <div className="absolute bottom-12 left-12 flex items-center gap-6 z-20">
          <span className="text-white font-serif text-4xl italic opacity-50">0{currentSlide + 1}</span>
          <div className="flex gap-2">
             {slides.map((_, index) => (
@@ -155,12 +155,12 @@ export function VideoLikeCarousel() {
             ))}
          </div>
          <span className="text-white font-serif text-xl opacity-30">0{slides.length}</span>
-      </div>
+      </div> */}
 
       {/* Progress Line */}
       <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/10 z-30">
         <div 
-          className="h-full bg-amber-500 transition-all duration-100 linear"
+          className="h-full bg-black-500 transition-all duration-100 linear"
           style={{ width: `${((currentSlide + 1) / slides.length) * 100}%` }}
         />
       </div>

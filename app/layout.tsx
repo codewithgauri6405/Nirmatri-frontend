@@ -17,9 +17,9 @@ export default function RootLayout({
     <html lang="en">
       <body className="antialiased">
         {/* ✅ Wrap entire app with ThemeProvider for global theme access */}
-        {/* <ThemeProvider> */}
+        <ThemeProvider>
           {children}
-        {/* </ThemeProvider> */}
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from '@/app/contexts/ThemeContext';
 import { useRouter } from "next/navigation";
-import { Input } from "@/app/components/ui/input";
+import  TermsModal  from "@/app/components/TermsModal";
 
 // ============================================
 // CONFIGURATION
@@ -23,8 +23,8 @@ export default function SellerOnboardingPage() {
   // Form data state for all steps
   const [formData, setFormData] = useState({
 
-    // Store Info
-    ownername: "",
+    // Store Info 
+    ownerName: "",
     storeName: "",
     storeCategory: [] as string[],
     // storeDescription: "",
@@ -726,7 +726,11 @@ function PhoneVerification({ formData, updateFormData }: FormDataProps) {
 // ============================================
 // STEP 5: REVIEW & SUBMIT
 // ============================================
-function Review({ formData }: Pick<FormDataProps, 'formData'>) {
+
+
+function Review({ formData }: any) {
+  const [showTerms, setShowTerms] = useState(false);
+  
   const sections = [
     {
       title: "Phone Verification",
@@ -779,6 +783,11 @@ function Review({ formData }: Pick<FormDataProps, 'formData'>) {
           Please review all details before submitting
         </p>
       </div>
+       <TermsModal
+  open={showTerms}
+  onClose={() => setShowTerms(false)}
+  termsContent={termsContent}
+/>
 
       {/* Review Sections */}
       <div className="space-y-4">
@@ -805,6 +814,8 @@ function Review({ formData }: Pick<FormDataProps, 'formData'>) {
           </div>
         ))}
       </div>
+      
+
 
       {/* Terms and Conditions */}
       <div className="bg-white dark:bg-gray-700 border-2 border-gray-300 dark:border-gray-600 rounded-lg p-5">
@@ -816,9 +827,14 @@ function Review({ formData }: Pick<FormDataProps, 'formData'>) {
           <div className="flex-1">
             <p className="text-sm text-gray-900 dark:text-white">
               I agree to the{" "}
-              <a href="/seller/onboarding/terms&conditions" className="text-blue-600 dark:text-blue-400 hover:underline">
+              <button
+  type="button"
+  onClick={() => setShowTerms(true)}
+  className="text-blue-600 dark:text-blue-400 hover:underline"
+>
+
                 Terms and Conditions
-              </a>
+              </button>
               {" "}and{" "}
               <a href="/seller/onboarding/privacy_policy" className="text-blue-600 dark:text-blue-400 hover:underline">
                 Privacy Policy
@@ -845,6 +861,50 @@ function Review({ formData }: Pick<FormDataProps, 'formData'>) {
     </div>
   );
 }
+const termsContent = [
+    {
+      title: '1. Seller Eligibility',
+      content: 'By registering as a seller on Nirmatri Crafts, you confirm that you are highlighting authentic, handcrafted items. We reserve the right to verify the origin of your products and request additional documentation if needed.'
+    },
+    {
+      title: '2. Commissions & Fees',
+      content: 'Nirmatri Crafts charges a standard 10% platform fee on every successful sale. This covers payment processing, marketing for your products, customer support, and platform maintenance. Additional fees may apply for premium features.'
+    },
+    {
+      title: '3. Product Authenticity',
+      content: 'All products must be handmade, handcrafted, or artisanal. Mass-produced items, counterfeit goods, or items misrepresented as handmade are strictly prohibited. We conduct regular quality checks to maintain marketplace integrity.'
+    },
+    {
+      title: '4. Shipping Policy',
+      content: 'Sellers are responsible for packaging products safely and securely. Orders must be dispatched within 48 hours of confirmation unless otherwise specified. Failure to ship on time may result in store penalties, reduced visibility, or account suspension.'
+    },
+    {
+      title: '5. Payout Schedule',
+      content: 'Funds from sales are held in escrow for 7 days post-delivery to handle potential returns or disputes. Payouts are processed every Monday directly to your registered bank account. Minimum payout threshold is ₹500.'
+    },
+    {
+      title: '6. Returns & Refunds',
+      content: 'Sellers must honor our 7-day return policy for damaged or defective items. Return shipping costs for seller errors will be deducted from your account. Customer satisfaction is our priority.'
+    },
+    {
+      title: '7. Prohibited Items',
+      content: 'Mass-produced industrial goods, hazardous materials, illegal substances, weapons, copyrighted designs without permission, and any items violating Indian law are strictly prohibited. Violations may result in immediate account termination.'
+    },
+    {
+      title: '8. Intellectual Property',
+      content: 'You retain ownership of your product designs. However, by listing on Nirmatri, you grant us a license to display, market, and promote your products across our platforms and marketing channels.'
+    },
+    {
+      title: '9. Account Termination',
+      content: 'We reserve the right to suspend or terminate seller accounts for policy violations, fraudulent activity, poor customer ratings, or failure to maintain quality standards. Termination procedures are outlined in our dispute resolution policy.'
+    },
+    {
+      title: '10. Changes to Terms',
+      content: 'Nirmatri reserves the right to modify these terms at any time. Sellers will be notified via email 30 days before changes take effect. Continued use of the platform constitutes acceptance of updated terms.'
+    },
+  ];
+
+  
 
 /* ============================================ */
 /* 🔹 HELPER COMPONENTS */

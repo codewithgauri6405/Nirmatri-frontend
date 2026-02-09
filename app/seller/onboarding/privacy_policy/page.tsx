@@ -5,8 +5,13 @@ import { useTheme } from '@/app/contexts/ThemeContext';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import TermsModal from '@/app/components/TermsModal';
 
 export default function SellerPrivacyPolicyPage() {
+  const [showTerms, setShowTerms] = useState(false);
+
+
+  
   // ============================================
   // STATE & HOOKS
   // ============================================
@@ -176,8 +181,60 @@ export default function SellerPrivacyPolicyPage() {
   // ============================================
   // RENDER
   // ============================================
+
+  const termsContent = [
+    {
+      title: '1. Seller Eligibility',
+      content: 'By registering as a seller on Nirmatri Crafts, you confirm that you are highlighting authentic, handcrafted items. We reserve the right to verify the origin of your products and request additional documentation if needed.'
+    },
+    {
+      title: '2. Commissions & Fees',
+      content: 'Nirmatri Crafts charges a standard 10% platform fee on every successful sale. This covers payment processing, marketing for your products, customer support, and platform maintenance. Additional fees may apply for premium features.'
+    },
+    {
+      title: '3. Product Authenticity',
+      content: 'All products must be handmade, handcrafted, or artisanal. Mass-produced items, counterfeit goods, or items misrepresented as handmade are strictly prohibited. We conduct regular quality checks to maintain marketplace integrity.'
+    },
+    {
+      title: '4. Shipping Policy',
+      content: 'Sellers are responsible for packaging products safely and securely. Orders must be dispatched within 48 hours of confirmation unless otherwise specified. Failure to ship on time may result in store penalties, reduced visibility, or account suspension.'
+    },
+    {
+      title: '5. Payout Schedule',
+      content: 'Funds from sales are held in escrow for 7 days post-delivery to handle potential returns or disputes. Payouts are processed every Monday directly to your registered bank account. Minimum payout threshold is ₹500.'
+    },
+    {
+      title: '6. Returns & Refunds',
+      content: 'Sellers must honor our 7-day return policy for damaged or defective items. Return shipping costs for seller errors will be deducted from your account. Customer satisfaction is our priority.'
+    },
+    {
+      title: '7. Prohibited Items',
+      content: 'Mass-produced industrial goods, hazardous materials, illegal substances, weapons, copyrighted designs without permission, and any items violating Indian law are strictly prohibited. Violations may result in immediate account termination.'
+    },
+    {
+      title: '8. Intellectual Property',
+      content: 'You retain ownership of your product designs. However, by listing on Nirmatri, you grant us a license to display, market, and promote your products across our platforms and marketing channels.'
+    },
+    {
+      title: '9. Account Termination',
+      content: 'We reserve the right to suspend or terminate seller accounts for policy violations, fraudulent activity, poor customer ratings, or failure to maintain quality standards. Termination procedures are outlined in our dispute resolution policy.'
+    },
+    {
+      title: '10. Changes to Terms',
+      content: 'Nirmatri reserves the right to modify these terms at any time. Sellers will be notified via email 30 days before changes take effect. Continued use of the platform constitutes acceptance of updated terms.'
+    },
+  ];
+
+
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-200">
+      <TermsModal
+  open={showTerms}
+  onClose={() => setShowTerms(false)}
+  termsContent={termsContent}
+/>
+
+
       <main className="min-h-screen">
         {/* ============================================ */}
         {/* HEADER SECTION */}
@@ -334,12 +391,20 @@ export default function SellerPrivacyPolicyPage() {
             transition={{ duration: 0.5, delay: 0.7 }}
             className="mt-8 flex flex-col sm:flex-row gap-4"
           >
-            <Link
-              href="/seller/onboarding/terms&conditions/"
+            {/* <Link
+              href="setShowTerms(true)"
               className="flex-1 px-6 py-4 bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-xl font-semibold text-center hover:bg-gray-50 dark:hover:bg-gray-700 transition-all"
             >
               📄 View Terms of Service
-            </Link>
+            </Link> */}
+            <button
+  type="button"
+  onClick={() => setShowTerms(true)}
+  className="flex-1 px-6 py-4 bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-xl font-semibold text-center hover:bg-gray-50 dark:hover:bg-gray-700 transition-all"
+>
+  📄 View Terms of Service
+</button>
+
             <button
               onClick={() => window.print()}
               className="flex-1 px-6 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-semibold transition-all shadow-lg hover:shadow-xl"

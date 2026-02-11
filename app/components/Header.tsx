@@ -144,7 +144,7 @@ if (
                   type="submit"
                   className="absolute right-1 top-1/2 -translate-y-1/2 h-7 w-7 rounded-full"
                 >
-              <Search className="h-6 w-6 text-blue-500" />
+              <Search className="h-6 w-6 text-green-500" />
 
                 </Button>
               </form>

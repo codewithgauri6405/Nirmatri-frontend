@@ -15,6 +15,8 @@ const LeftPanel = dynamic(
 );
 
 
+
+
 /* ===================== SECTIONS ===================== */
 import { MyProfileSection } from "@/app/components/userprofile/sections/MyProfileSection";
 import { OrdersSection } from "@/app/components/userprofile/sections/OrdersSection";
@@ -81,6 +83,7 @@ export default function HeaderWrapper() {
         return <MyProfileSection />;
     }
   };
+  
 
   /* 🔥 DEVICE CHECK */
   const isMobile = () => window.innerWidth < 1024; // lg breakpoint

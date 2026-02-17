@@ -27,7 +27,7 @@ const slides = [
     id: 3,
     image: "/boutique.png", // Crochet/Bouquet focus
     title: "Threads That Empower",
-    subtitle: "Intricate crochet bouquets and handmade clothes that tell a story.",
+    subtitle: "Intricate crochet bouquets and handmade clothes that tells a story.  ",
     // cta: "Shop Apparel",
     tag: "HAND-KNITTED",
     color: "from-rose-900/80"
@@ -51,7 +51,7 @@ export function VideoLikeCarousel() {
   const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
 
   return (
-    <section className="relative h-[300px] md:h-[280px] overflow-hidden bg-[#FAF9F6]">
+    <section className="relative h-[300px] md:h-[300px] overflow-hidden bg-[#FAF9F6]">
       {/* Slides */}
       {slides.map((slide, index) => (
         <div
@@ -89,7 +89,7 @@ export function VideoLikeCarousel() {
                 </h2>
 
                 {/* Subtitle */}
-                <p className="text-lg md:text-xl text-white/80 max-w-lg leading-relaxed font-light">
+                <p className="text-lg md:text-xl text-white/80 max-w-2xl leading-relaxed font-light">
                   {slide.subtitle}
                 </p>
 

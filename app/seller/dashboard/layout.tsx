@@ -38,26 +38,26 @@ export default function SellerLayout({
           <NavItem 
             href="/seller/dashboard" 
             label="Dashboard" 
-            icon="📊"
+            icon=""
             pathname={pathname}
             exact
           />
           <NavItem 
             href="/seller/dashboard/orders" 
             label="Orders" 
-            icon="📦"
+            icon=""
             pathname={pathname} 
           />
           <NavItem 
             href="/seller/dashboard/products" 
             label="Products" 
-            icon="🏺"
+           icon=""
             pathname={pathname} 
           />
           <NavItem 
             href="/seller/dashboard/earnings" 
             label="Earnings" 
-            icon="💰"
+            icon=""
             pathname={pathname} 
           />
           <div className="pt-4 pb-2 px-4">
@@ -66,13 +66,13 @@ export default function SellerLayout({
           <NavItem 
             href="/seller/dashboard/profile" 
             label="Profile" 
-            icon="👤"
+            icon=""
             pathname={pathname} 
           />
           <NavItem 
             href="/seller/dashboard/settings" 
             label="Settings" 
-            icon="⚙️"
+           icon=""
             pathname={pathname} 
           />
         </nav>

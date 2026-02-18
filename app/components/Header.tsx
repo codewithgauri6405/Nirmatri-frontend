@@ -110,7 +110,7 @@ if (
         </SheetContent>
       </Sheet>
 
-      <header className="sticky top-0 z-50 backdrop-blur-xl bg-black">
+      <header className="sticky top-0 z-50 backdrop-blur-xl bg-gradient-green-black-purple">
         {/* 🔹 TOP PROMO BAR */}
         <div
           className={`overflow-hidden transition-all duration-500 ${
@@ -177,6 +177,9 @@ if (
                     </DropdownMenuItem>
                     <DropdownMenuItem onClick={() => router.push("/seller/login")}>
                       Login as Seller
+                    </DropdownMenuItem>
+                    <DropdownMenuItem onClick={() => router.push("/userauth/login")}>
+                      Super Admin 
                     </DropdownMenuItem>
                   </DropdownMenuContent>
                 </DropdownMenu>

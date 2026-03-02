@@ -35,6 +35,7 @@ export function Header({ onUserClick }: HeaderProps) {
   /* ❌ AUTH PAGES PE HEADER HIDE */
   const hideHeader =
     pathname.startsWith("/seller") ||
+     pathname.startsWith("/superadmin/login") ||
     pathname.startsWith("/userauth");
 
   /* ⏱️ TOP BAR AUTO HIDE */
@@ -89,7 +90,7 @@ export function Header({ onUserClick }: HeaderProps) {
         </SheetContent>
       </Sheet>
 
-      <header className="bg-[#1A3A2A] backdrop-blur-md sticky top-0 z-50">
+      <header className="bg-[rgba(5, 62, 33, 0.5)] backdrop-blur-md sticky top-0 z-50">
         {/* 🔹 TOP BAR */}
         <div
           className={`overflow-hidden transition-all duration-500 ${
@@ -102,6 +103,7 @@ export function Header({ onUserClick }: HeaderProps) {
         </div>
 
         {/* 🔹 MAIN HEADER */}
+        
         <div className="h-14">
           <div className="max-w-7xl mx-auto h-full px-4 flex items-center gap-3">
             <NirmatriLogo />
@@ -124,6 +126,8 @@ export function Header({ onUserClick }: HeaderProps) {
                 </Button>
               </form>
             </div>
+
+
 
             {/* ACTIONS */}
             <div className="flex items-center gap-2 ml-auto">

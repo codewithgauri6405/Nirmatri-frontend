@@ -9,7 +9,7 @@ export default function NirmatriLogo() {
 
   const handleClick = () => {
     if (pathname === "/") {
-      router.replace("/superadmin/login");
+      router.push("/superadmin/login");
     }
   };
 
